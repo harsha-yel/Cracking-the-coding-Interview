@@ -91,8 +91,6 @@ public class LinkedList{
 			tail=currentNode;
 		}
 		listSize--;
-		System.out.println(listSize);
-	
 	}
 
 	public void deletePosition(int pos){
