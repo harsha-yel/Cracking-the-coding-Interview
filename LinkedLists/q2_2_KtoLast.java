@@ -19,4 +19,4 @@ public class q2_2_KtoLast{
 		for(int Iterator:position)
 			System.out.println("position-"+Iterator+":"+k2Last(Iterator,size,list.head));
 	}
-}
+} 
