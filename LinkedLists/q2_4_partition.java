@@ -1,27 +1,36 @@
 public class q2_4_partition{
 
-	static void partition(myLinkedList.LinkedList list,int x){
-		myLinkedList.Node currentNode=list.head;
-		myLinkedList.Node left=null;
-		myLinkedList.Node right=null;
+	static void partition(myLinkedList.Node head,int x){
+		myLinkedList.Node currentNode=head;
+		myLinkedList.LinkedList left=new myLinkedList.LinkedList();
+		myLinkedList.LinkedList right=new myLinkedList.LinkedList();
 		while(currentNode!=null){
 			int data=currentNode.getData();
 			if(data<x){
-				left=currentNode;
-
-			}
-				
+				if(left.head==null)
+					left.addBegin(data);	
+				else 
+					left.addEnd(data);
+			}	
+			else if(data==x) right.addBegin(data);
+			else{
+				if(right.head==null)
+					right.addBegin(data);		
+				else
+					right.addEnd(data);
+			}	
 			currentNode=currentNode.getNext();
 		}		
-   		System.out.println("partition-->"+x+"\n"+list.getList());
-
+		
+		left.tail.setNext(right.head);
+		System.out.println("parition-->"+x+"\n"+left.getList());
 	}
 	public static void main(String[] args) {
 		myLinkedList.LinkedList list=new myLinkedList.LinkedList();
 		list.generateRandom(10);
 		System.out.println(list.getList());
 		int x=Integer.parseInt(list.getList().split(" ")[(int)(Math.random()*10)]);
-		partition(list,x);
+		partition(list.head,x);
 
 	}
 }
