@@ -5,7 +5,6 @@ public class q2_2_KtoLast{
 		myLinkedList.Node p1=head;
 		myLinkedList.Node p2=head;
 		int i=1;
-		//if(size-posi)
 		while(i<=position){
 			p2=p2.getNext();
 			i++;	
