@@ -5,7 +5,7 @@ public class q2_5_SumLists_reverse2Recursive{
 	static Node sumLists(Node list1,Node list2, int carry){
 		if(list1==null&&list2==null&&carry==0)
 			return null;
-		Node out=new Node(0);
+		Node out=new Node(0);// default initialization of data-->0
 		int value=carry;
 		
 		if(list1!=null) value+=list1.getData();
@@ -14,7 +14,7 @@ public class q2_5_SumLists_reverse2Recursive{
 		if(list1!=null||list2!=null){
 			Node more=sumLists(list1==null?null:list1.getNext(),list2==null?null:list2.getNext(),value>9?1:0);
 			out.setNext(more);
-			}
+		  }
 		return out;
 	}
 
