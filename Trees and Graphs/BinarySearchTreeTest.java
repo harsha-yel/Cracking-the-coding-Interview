@@ -1,45 +1,45 @@
 //package MyTrees;
 import java.util.Arrays;
-class Node{
+class TreeNode{
 	int data=-1;
-	Node left;
-	Node right;
-	public Node(int data){
+	TreeNode left;
+	TreeNode right;
+	public TreeNode(int data){
 		this.data=data;
 		left=null;
 		right=null;
 	}
-	public Node(){}
-	public Node getLeft(){return left;}
-	public Node getRight(){return right;}
-	public void setRight(Node right){this.right=right;}
-	public void setLeft(Node left){this.left=left;}
+	public TreeNode(){}
+	public TreeNode getLeft(){return left;}
+	public TreeNode getRight(){return right;}
+	public void setRight(TreeNode right){this.right=right;}
+	public void setLeft(TreeNode left){this.left=left;}
 	public int getData(){return data;}
 	public void setData(int data){this.data=data;}
 }
 
 class BinarySearchTree{
-	static Node root=null;
+	static TreeNode root=null;
 	
 	public void insert(int data){
 		if(root==null)
 		{
-			root=new Node(data);
+			root=new TreeNode(data);
 			return;
 		}//	System.out.println(data);
 		
-		Node runner=root;
+		TreeNode runner=root;
 		while(true){
 			if(runner.getData()>data){
 				if(runner.getLeft()==null){
-					runner.setLeft(new Node(data));
+					runner.setLeft(new TreeNode(data));
 					return;
 				}
 				else runner=runner.getLeft();
 			}
 			else if(runner.getData()<data){
 				if(runner.getRight()==null){
-					runner.setRight(new Node(data));
+					runner.setRight(new TreeNode(data));
 					return;
 				}
 				else runner=runner.getRight();
@@ -54,7 +54,7 @@ class BinarySearchTree{
 /*
 	public void delete(int data){
 		if(root==null){System.out.println("Empty tree");return;}
-		Node runner=root;
+		TreeNode runner=root;
 		while(true){
 			if(runner.getData()==data){
 				if(runner.getNext()==null)
@@ -64,7 +64,7 @@ class BinarySearchTree{
 	}
 */	
 	public boolean search(int data){
-			Node runner=root;
+			TreeNode runner=root;
 			while(true){
 				if(runner==null) {
 					System.out.println("Empty tree");
@@ -78,7 +78,7 @@ class BinarySearchTree{
 				
 	}
 	
-	public void inorder(Node root){
+	public void inorder(TreeNode root){
 		if(root!=null){
 			inorder(root.getLeft());
 		 	System.out.print(root.getData()+",");
@@ -86,7 +86,7 @@ class BinarySearchTree{
 		}
 	}
 
-	public void postorder(Node root){
+	public void postorder(TreeNode root){
 		if(root!=null){
 			postorder(root.getLeft());
 			postorder(root.getRight());
@@ -94,7 +94,7 @@ class BinarySearchTree{
 
 		}
 	}
-	public void preorder(Node root){
+	public void preorder(TreeNode root){
 		if(root!=null){
 		 	System.out.print(root.getData()+",");
 			preorder(root.getLeft());
